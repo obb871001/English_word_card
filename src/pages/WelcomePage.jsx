@@ -1,6 +1,5 @@
 import { Stack } from '@mui/material';
 
-import Layout from '../components/layout/Layout';
 import {
   WelcomeForm,
   WelcomeHeader,
@@ -13,14 +12,14 @@ import {
  */
 const WelcomePage = () => {
   return (
-    <Layout>
+    <>
       <WelcomeHeader />
 
       <Stack spacing={4} sx={{ maxWidth: 400, mx: 'auto', px: 2 }}>
         <WelcomeTitle />
         <WelcomeForm />
       </Stack>
-    </Layout>
+    </>
   );
 };
 

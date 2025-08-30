@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { Fragment } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import Footer from './Footer';
 import Header from './Header';
@@ -22,7 +23,7 @@ const Layout = ({ children, sx } = {}) => {
         width={'100%'}
         {...sx}
       >
-        {children}
+        {children || <Outlet />}
       </Box>
       <Footer />
     </Fragment>

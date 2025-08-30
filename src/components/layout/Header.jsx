@@ -1,8 +1,12 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import AddIcon from '@mui/icons-material/Add';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
-import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { useFlashCardModal } from '../../hooks/useFlashCardModal';
 
 const Header = ({ title = 'TOEIC 單字卡', onMenuClick }) => {
+  const { openFlashCard } = useFlashCardModal();
+
   return (
     <AppBar
       color="primary"
@@ -16,9 +20,10 @@ const Header = ({ title = 'TOEIC 單字卡', onMenuClick }) => {
           color="inherit"
           edge="start"
           sx={{ mr: 1 }}
-          onClick={onMenuClick}
+          component={Link}
+          to={-1}
         >
-          <MenuIcon />
+          <Typography fontSize={'small'}>返回</Typography>
         </IconButton>
 
         <Typography
@@ -26,11 +31,17 @@ const Header = ({ title = 'TOEIC 單字卡', onMenuClick }) => {
           sx={{ flexGrow: 1, fontWeight: 700, textAlign: 'center' }}
           variant="h6"
         >
-          {title}
+          <Link to="/">{title}</Link>
         </Typography>
 
-        {/* 占位，保持標題置中 */}
-        <div style={{ width: 40 }} />
+        {/* 快速開啟 FlashCard 按鈕 */}
+        <IconButton
+          aria-label="add flashcard"
+          color="inherit"
+          onClick={openFlashCard}
+        >
+          <AddIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
