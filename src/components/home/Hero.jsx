@@ -5,9 +5,9 @@ const Hero = () => {
   return (
     <Stack>
       <Stack>
-        <Typography gutterBottom fontSize={'16px'} fontWeight={600} mb={0}>
+        {/* <Typography gutterBottom fontSize={'16px'} fontWeight={600} mb={0}>
           歡迎來到 TOEIC 單字卡
-        </Typography>
+        </Typography> */}
         <Typography gutterBottom fontWeight={'900'} variant="h4">
           Time to study!
         </Typography>
