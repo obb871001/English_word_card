@@ -2,7 +2,9 @@ import { Box, Button, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import { Challenge, Hero, TopicGrid, WordOfDay } from '../components/home';
-
+import { green } from '@mui/material/colors';
+import BookIcon from '@mui/icons-material/Book';
+import ViewWords from '../components/home/ViewWords';
 const HomePage = () => {
   return (
     <Box
@@ -14,19 +16,7 @@ const HomePage = () => {
       }}
     >
       <Hero />
-
-      {/* 測試按鈕 */}
-      <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
-        <Button
-          type="primary"
-          component={Link}
-          to="/vocabulary-cards"
-          variant="contained"
-        >
-          查看所有單字
-        </Button>
-      </Stack>
-
+      <ViewWords />
       <Challenge />
       <WordOfDay />
       <TopicGrid />

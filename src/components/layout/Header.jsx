@@ -15,7 +15,7 @@ const Header = ({ title = 'TOEIC 單字卡', onMenuClick }) => {
       sx={{ display: { xs: 'flex', md: 'none' } }}
     >
       <Toolbar sx={{ minHeight: 56, px: 2 }}>
-        <IconButton
+        {/* <IconButton
           aria-label="menu"
           color="inherit"
           edge="start"
@@ -24,7 +24,7 @@ const Header = ({ title = 'TOEIC 單字卡', onMenuClick }) => {
           to={-1}
         >
           <Typography fontSize={'small'}>返回</Typography>
-        </IconButton>
+        </IconButton> */}
 
         <Typography
           component="div"
