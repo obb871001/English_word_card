@@ -12,7 +12,7 @@ const WelcomeHeader = () => {
       alignItems={'center'}
       display={'flex'}
       flexDirection={'column'}
-      height={'60dvh'}
+      height={'40dvh'}
       justifyContent={'center'}
       textAlign={'center'}
       width={'100%'}

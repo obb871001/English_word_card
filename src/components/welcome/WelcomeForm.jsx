@@ -1,5 +1,10 @@
 import { Box, Button, Stack, TextField } from '@mui/material';
+import Cookies from 'js-cookie';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useUserLoginMutates } from '../../hooks/user';
+import { useSnackBar } from '../../hooks/useSnackBar';
 
 /**
  * @description 歡迎頁面的註冊表單
@@ -10,6 +15,12 @@ const WelcomeForm = () => {
     userName: ''
   });
 
+  const { showSuccess, showError } = useSnackBar();
+
+  const { mutateAsync } = useUserLoginMutates();
+
+  const navigate = useNavigate();
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -18,11 +29,25 @@ const WelcomeForm = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('表單資料:', formData);
-    alert(`歡迎 ${formData.userName}！`);
-    // TODO: 這裡可以添加實際的註冊邏輯
+    try {
+      const response = await mutateAsync({
+        username: formData.userName,
+        password: '87100101'
+      });
+
+      const { access_token, refresh_token } = response;
+      Cookies.set('access_token', access_token);
+      Cookies.set('refresh_token', refresh_token);
+
+      showSuccess(`歡迎 ${formData.userName}！`);
+
+      navigate('/');
+    } catch (error) {
+      console.error('登入失敗:', error);
+      showError('登入失敗，請檢查您的帳號和密碼。');
+    }
   };
 
   return (
