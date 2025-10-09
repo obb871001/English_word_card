@@ -28,3 +28,16 @@ export const useVocabularyByIdQueries = (id) => {
     ...rest
   };
 };
+
+export const useLevelVocabularyQueries = (level) => {
+  const { data, isFetching, ...rest } = useQuery({
+    queryKey: ['levelVocabulary'],
+    queryFn: () => vocabularyAPI.getDifficultyVocabulary(level),
+    select: (res) => res.data
+  });
+  return {
+    vocabularyList: data,
+    isFetching,
+    ...rest
+  };
+};

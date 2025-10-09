@@ -2,16 +2,16 @@ import { Box, Stack } from '@mui/material';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import _, { find, findIndex, get, toNumber } from 'lodash';
 import {
-  useParams,
-  useNavigate,
-  useLocation,
+  generatePath,
   matchPath,
-  generatePath
+  useLocation,
+  useNavigate,
+  useParams
 } from 'react-router-dom';
 
+import { LoadingState } from '../components/cards';
 import { FlipCard } from '../components/flashcard';
 import { useVocabularyQueries } from '../hooks/vocabulary';
-import { LoadingState } from '../components/cards';
 
 const CardDetailPage = () => {
   const { vocabularyList } = useVocabularyQueries();
